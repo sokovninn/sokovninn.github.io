@@ -1,0 +1,57 @@
+{% if page.layout == 'home' %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": "{{ site.url }}/#person",
+      "name": {{ site.title | jsonify }},
+      "url": "{{ site.url }}/",
+      "jobTitle": "Machine Learning Engineer",
+      "description": {{ site.description | jsonify }},
+      "sameAs": [
+        "https://github.com/{{ site.github-url }}",
+        "https://www.linkedin.com/in/{{ site.linkedin }}/"
+      ],
+      "knowsAbout": ["Machine learning", "Computer vision", "Deep learning", "Robotics", "Edge AI"],
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Prague",
+        "addressCountry": "CZ"
+      }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "{{ site.url }}/#website",
+      "url": "{{ site.url }}/",
+      "name": {{ site.title | jsonify }},
+      "description": {{ site.description | jsonify }},
+      "inLanguage": "en-US",
+      "publisher": { "@id": "{{ site.url }}/#person" }
+    }
+  ]
+}
+</script>
+{% elsif page.layout == 'post' %}
+{% capture post_json_desc %}{{ page.excerpt | default: site.description | markdownify | strip_html | strip_newlines | truncate: 320 }}{% endcapture %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": {{ page.title | jsonify }},
+  "description": {{ post_json_desc | jsonify }},
+  "url": {{ page.url | absolute_url | jsonify }},
+  "datePublished": "{{ page.date | date_to_xmlschema }}",
+  "author": {
+    "@type": "Person",
+    "name": {{ site.title | jsonify }},
+    "url": "{{ site.url }}/"
+  },
+  "publisher": {
+    "@type": "Person",
+    "name": {{ site.title | jsonify }}
+  }
+}
+</script>
+{% endif %}

@@ -1,6 +1,7 @@
 ---
 layout: page
 title: About
+description: About Nikita Sokovnin — ML engineer in Prague, production computer vision, DataDreamer, Luxonis, EPAM, CIIRC, education, and open-source work.
 date: 2026-03-22
 comments: false
 ---

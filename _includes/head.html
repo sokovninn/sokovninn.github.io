@@ -1,34 +1,60 @@
     <meta charset="UTF-8">
     <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
-    <meta http-equiv=X-UA-Compatible content="IE=edge,chrome=1">
-    <title>{% if page.title %}{{ page.title }} &#8211; {% endif %}{{ site.title }}</title>
-    <meta name="description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}">
-    {% if page.tags %}<meta name="keywords" content="{{ page.tags | join: ', ' }}">{% endif %}
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+{% comment %} SEO: unified description (page > excerpt > site) {% endcomment %}
+{% if page.description and page.description != '' %}
+  {% assign seo_description = page.description | strip %}
+{% elsif page.excerpt %}
+  {% assign seo_description = page.excerpt | markdownify | strip_html | strip_newlines | strip | truncate: 160 %}
+{% else %}
+  {% assign seo_description = site.description %}
+{% endif %}
+{% assign canonical = page.url | absolute_url %}
+{% capture seo_title %}{% if page.layout == 'home' %}{{ site.title }} — Machine Learning Engineer · Prague{% elsif page.title %}{{ page.title }} — {{ site.title }}{% else %}{{ site.title }}{% endif %}{% endcapture %}
+    <title>{{ seo_title | strip }}</title>
+    <meta name="description" content="{{ seo_description | escape_once }}">
+    <meta name="author" content="{{ site.title }}">
+    {% if page.seo_noindex %}<meta name="robots" content="noindex, follow">{% else %}<meta name="robots" content="index, follow, max-image-preview:large">{% endif %}
+    <meta name="theme-color" content="#0a1018">
+    <meta name="generator" content="Jekyll">
+    {% if page.tags %}<meta name="keywords" content="{{ page.tags | join: ', ' | escape_once }}">{% endif %}
     <!-- Twitter Cards -->
     {% if page.feature %}{% capture feature %}{{ page.feature }}{% endcapture %}{% unless feature contains 'http://' or feature contains 'https://' %}{% capture feature %}{{ site.url }}/{{ feature }}{% endcapture %}{% endunless %}
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:image" content="{{ feature }}">
-    {% else %}<meta name="twitter:card" content="summary">
+    {% else %}<meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:image" content="{{ site.url }}/{{ site.logo }}">{% endif %}
-    <meta name="twitter:title" content="{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}">
-    {% if page.excerpt %}<meta name="twitter:description" content="{{ page.excerpt | markdownify | strip_html | strip_newlines | escape_once }}">{% endif %}
+    <meta name="twitter:title" content="{{ seo_title | strip | escape_once }}">
+    <meta name="twitter:description" content="{{ seo_description | escape_once }}">
     {% if site.twitter %}<meta name="twitter:site" content="@{{ site.twitter }}">
     <meta name="twitter:creator" content="@{{ site.twitter }}">{% endif %}
     <!-- Open Graph -->
-    <meta property="og:locale" content="{{ site.locale }}">
+    <meta property="og:locale" content="{{ site.locale | replace: '_', '-' }}">
+    {% if page.layout == 'post' %}
     <meta property="og:type" content="article">
-    <meta property="og:title" content="{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}">
-    {% if page.excerpt %}<meta property="og:description" content="{{ page.excerpt | markdownify | strip_html | strip_newlines | escape_once }}">{% endif %}
-    <meta property="og:url" content="{{ page.url | replace:'index.html','' | prepend: site.url }}">
+    {% if page.date %}<meta property="article:published_time" content="{{ page.date | date_to_xmlschema }}">{% endif %}
+    {% else %}
+    <meta property="og:type" content="website">
+    {% endif %}
+    <meta property="og:title" content="{{ seo_title | strip | escape_once }}">
+    <meta property="og:description" content="{{ seo_description | escape_once }}">
+    <meta property="og:url" content="{{ canonical }}">
     <meta property="og:site_name" content="{{ site.title }}">
+    {% if page.feature %}{% capture ogimg %}{{ page.feature }}{% endcapture %}{% unless ogimg contains 'http://' or ogimg contains 'https://' %}{% capture ogimg %}{{ site.url }}/{{ ogimg }}{% endcapture %}{% endunless %}
+    <meta property="og:image" content="{{ ogimg }}">
+    <meta property="og:image:alt" content="{{ page.title | escape_once }} — featured image">
+    {% else %}
     <meta property="og:image" content="{{ site.url }}/{{ site.logo }}">
+    <meta property="og:image:alt" content="{{ site.title }} — site logo">
+    {% endif %}
     {% if site.google.verify %}
     <!-- Webmaster Tools verfication -->
     <meta name="google-site-verification" content="{{ site.google.verify }}">{% endif %}
     {% if site.bing-verify %}    <meta name="msvalidate.01" content="{{ site.bing-verify }}">{% endif %}
-    {% capture canonical %}{{ site.url }}{% if site.permalink contains '.html' %}{{ page.url }}{% else %}{{ page.url | remove:'index.html' | strip_slash }}{% endif %}{% endcapture %}
     <link rel="canonical" href="{{ canonical }}">
-    <link href="{{ site.url }}/feed.xml" type="application/atom+xml" rel="alternate" title="{{ site.title }} Feed">
+    <link rel="alternate" hreflang="en" href="{{ canonical }}">
+    <link rel="alternate" hreflang="x-default" href="{{ canonical }}">
+    <link href="{{ site.url }}/feed.xml" type="application/atom+xml" rel="alternate" title="{{ site.title }} — Atom feed">
     <!-- Handheld -->
     <meta name="HandheldFriendly" content="True">
     <meta name="MobileOptimized" content="320">
@@ -40,6 +66,7 @@
     <link rel="stylesheet" href="{{ site.url }}/assets/css/main.css">
     <!-- JS -->
     <script src="{{ site.url }}/assets/js/modernizr-3.3.1.custom.min.js"></script>
+    {% include seo-json-ld.html %}
     <!-- Favicons -->
     <link rel="apple-touch-icon" href="{{ site.url }}/assets/img/favicons/apple-icon-precomposed.png">
     <link rel="apple-touch-icon" sizes="72x72" href="{{ site.url }}/assets/img/favicons/apple-icon-72x72.png">

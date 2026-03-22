@@ -1,6 +1,7 @@
 ---
 layout: cv
 title: CV
+description: Résumé — ML & computer vision experience (EPAM, Luxonis, CIIRC), skills, education, projects, and publications.
 excerpt: Experience, education, and certifications
 comments: false
 ---
