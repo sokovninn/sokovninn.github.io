@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-labelledby="logoTitle">
-  <title id="logoTitle">Nikita Sokovnin  ML &amp; computer vision</title>
+  <title id="logoTitle">Nikita Sokovnin — ML &amp; computer vision</title>
   <defs>
     <linearGradient id="logoBg" x1="8" y1="12" x2="112" y2="108" gradientUnits="userSpaceOnUse">
       <stop offset="0%" stop-color="#070b12"/>
