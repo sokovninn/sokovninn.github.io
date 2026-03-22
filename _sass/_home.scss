@@ -82,6 +82,7 @@ $home-panel-border: rgba(255, 255, 255, 0.06);
   .header.header--home .container.home-panel {
     position: relative;
     z-index: 10;
+    align-self: stretch;
     flex: 0 0 auto;
     width: 100%;
     max-width: 36rem;
