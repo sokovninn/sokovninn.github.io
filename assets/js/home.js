@@ -1,5 +1,5 @@
 /**
- * Home hero: parallax SVG layers, spotlight, logo nudge, scroll reveal.
+ * Home hero: smoothed pointer response, parallax layers, logo nudge, scroll reveal.
  * Respects prefers-reduced-motion.
  */
 (function () {
@@ -12,12 +12,15 @@
   var panel = document.querySelector('.home-panel');
   var mqReduce = window.matchMedia('(prefers-reduced-motion: reduce)');
 
-  var mx = typeof window.innerWidth === 'number' ? window.innerWidth / 2 : 0;
-  var my = typeof window.innerHeight === 'number' ? window.innerHeight / 2 : 0;
+  var mx = window.innerWidth / 2;
+  var my = window.innerHeight / 2;
+  var smx = mx;
+  var smy = my;
   var scrollY = 0;
-  var raf = 0;
+  var rafId = 0;
+  var smooth = 0.11;
 
-  function moveSpotlight(clientX, clientY) {
+  function updateSpotlight(clientX, clientY) {
     if (!spotlight || mqReduce.matches) return;
     var x = (clientX / window.innerWidth) * 100;
     var y = (clientY / window.innerHeight) * 100;
@@ -27,31 +30,43 @@
 
   function nudgeLogo(clientX, clientY) {
     if (!logo || mqReduce.matches) return;
-    var dx = (clientX - window.innerWidth / 2) / 50;
-    var dy = (clientY - window.innerHeight / 2) / 50;
+    var dx = (clientX - window.innerWidth / 2) / 56;
+    var dy = (clientY - window.innerHeight / 2) / 56;
     logo.style.transform = 'translate(' + dx + 'px,' + dy + 'px)';
   }
 
-  function applyLayerParallax() {
+  function applyLayerParallax(clientX, clientY) {
     if (!layers.length || mqReduce.matches) return;
-    var nx = mx / window.innerWidth - 0.5;
-    var ny = my / window.innerHeight - 0.5;
+    var nx = clientX / window.innerWidth - 0.5;
+    var ny = clientY / window.innerHeight - 0.5;
     var sy = scrollY;
     layers.forEach(function (el) {
       var m = parseFloat(el.getAttribute('data-parallax') || '0.5');
-      var tx = nx * 2 * 20 * m + sy * 0.045 * m;
-      var ty = ny * 2 * 14 * m + sy * 0.028 * m;
+      var tx = nx * 2 * 11 * m + sy * 0.032 * m;
+      var ty = ny * 2 * 9 * m + sy * 0.02 * m;
       el.style.transform = 'translate3d(' + tx + 'px,' + ty + 'px,0)';
     });
   }
 
-  function scheduleParallax() {
+  function tick() {
+    rafId = 0;
     if (mqReduce.matches) return;
-    if (raf) cancelAnimationFrame(raf);
-    raf = requestAnimationFrame(function () {
-      raf = 0;
-      applyLayerParallax();
-    });
+
+    smx += (mx - smx) * smooth;
+    smy += (my - smy) * smooth;
+
+    updateSpotlight(smx, smy);
+    nudgeLogo(smx, smy);
+    applyLayerParallax(smx, smy);
+
+    if (Math.abs(mx - smx) > 0.2 || Math.abs(my - smy) > 0.2) {
+      rafId = requestAnimationFrame(tick);
+    }
+  }
+
+  function scheduleTick() {
+    if (mqReduce.matches) return;
+    if (!rafId) rafId = requestAnimationFrame(tick);
   }
 
   hero.addEventListener(
@@ -59,9 +74,17 @@
     function (e) {
       mx = e.clientX;
       my = e.clientY;
-      moveSpotlight(mx, my);
-      nudgeLogo(mx, my);
-      scheduleParallax();
+      scheduleTick();
+    },
+    { passive: true }
+  );
+
+  hero.addEventListener(
+    'mouseleave',
+    function () {
+      mx = window.innerWidth / 2;
+      my = window.innerHeight / 2;
+      scheduleTick();
     },
     { passive: true }
   );
@@ -70,7 +93,7 @@
     'scroll',
     function () {
       scrollY = window.scrollY || window.pageYOffset || 0;
-      scheduleParallax();
+      scheduleTick();
     },
     { passive: true }
   );

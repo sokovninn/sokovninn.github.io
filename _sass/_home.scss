@@ -19,23 +19,70 @@ $home-panel-border: rgba(255, 255, 255, 0.06);
     position: absolute;
     inset: 0;
     z-index: 0;
-    background: linear-gradient(155deg, #060a10 0%, #0f1828 38%, #0a121c 100%);
+    background: linear-gradient(
+      155deg,
+      #06090f 0%,
+      #0c1520 36%,
+      #0a1018 58%,
+      #070b12 100%
+    );
+  }
+
+  /* Atmospheric depth — editorial blue-slate + teal (no harsh neon) */
+  .home-hero__mesh {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    background:
+      radial-gradient(ellipse 95% 70% at 12% 22%, rgba(52, 88, 118, 0.28) 0%, transparent 58%),
+      radial-gradient(ellipse 80% 65% at 88% 78%, rgba(0, 72, 68, 0.2) 0%, transparent 55%),
+      radial-gradient(ellipse 60% 50% at 48% 52%, rgba(0, 40, 36, 0.14) 0%, transparent 60%);
+    opacity: 0.94;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .home-hero__mesh {
+      animation: homeMeshBreath 24s ease-in-out infinite alternate;
+    }
+  }
+
+  @keyframes homeMeshBreath {
+    0% {
+      opacity: 0.88;
+    }
+    100% {
+      opacity: 0.98;
+    }
+  }
+
+  /* Corner depth — keeps focus on center card */
+  .home-hero__vignette {
+    position: absolute;
+    inset: 0;
+    z-index: 5;
+    pointer-events: none;
+    background: radial-gradient(
+      ellipse 95% 90% at 50% 48%,
+      transparent 35%,
+      rgba(2, 5, 10, 0.35) 100%
+    );
   }
 
   .home-hero__parallax {
     position: absolute;
     inset: 0;
-    z-index: 1;
+    z-index: 2;
     pointer-events: none;
     overflow: hidden;
   }
 
   .home-parallax__layer {
     position: absolute;
-    left: -8%;
-    top: -8%;
-    width: 116%;
-    height: 116%;
+    left: -7%;
+    top: -7%;
+    width: 114%;
+    height: 114%;
     display: block;
     will-change: transform;
     transform: translate3d(0, 0, 0);
@@ -44,30 +91,44 @@ $home-panel-border: rgba(255, 255, 255, 0.06);
   .home-hero__grain {
     position: absolute;
     inset: 0;
-    z-index: 2;
+    z-index: 3;
     pointer-events: none;
-    opacity: 0.4;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='280' height='280'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.55'/%3E%3C/svg%3E");
-    mix-blend-mode: overlay;
+    opacity: 0.22;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='280' height='280'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
+    mix-blend-mode: soft-light;
   }
 
   .home-hero__spotlight {
     --sx: 50%;
-    --sy: 42%;
+    --sy: 45%;
     position: absolute;
     inset: 0;
-    z-index: 3;
+    z-index: 4;
     pointer-events: none;
     background: radial-gradient(
-      ellipse 60% 50% at var(--sx) var(--sy),
-      rgba(0, 212, 170, 0.22) 0%,
-      transparent 58%
-    );
+        ellipse 58% 48% at var(--sx) var(--sy),
+        rgba(255, 255, 255, 0.045) 0%,
+        rgba(0, 175, 155, 0.1) 32%,
+        transparent 58%
+      ),
+      radial-gradient(
+        ellipse 72% 58% at var(--sx) var(--sy),
+        rgba(0, 200, 175, 0.09) 0%,
+        transparent 52%
+      );
   }
 
   @media (prefers-reduced-motion: reduce) {
+    .home-hero__mesh {
+      animation: none;
+    }
     .home-hero__spotlight {
-      display: none;
+      opacity: 0.65;
+      background: radial-gradient(
+        ellipse 70% 55% at 50% 45%,
+        rgba(0, 160, 140, 0.08) 0%,
+        transparent 55%
+      );
     }
     .home-logo {
       transform: none !important;
