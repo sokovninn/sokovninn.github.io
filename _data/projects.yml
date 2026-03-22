@@ -4,6 +4,11 @@
   excerpt: Annotated datasets from scratch using GenAI and foundation CV models — synthetic data, prompts, and OWL/SAM-style annotation; pip-installable toolkit (Luxonis).
   tags: [computer-vision, deep-learning, research]
 
+- title: YOLOE on Luxonis OAK 4 — open-vocabulary detection & segmentation
+  url: https://github.com/luxonis/oak-examples/tree/main/custom-frontend/open-vocabulary-object-detection
+  excerpt: Real-time open-vocabulary object detection and instance segmentation on the OAK 4 D camera — text and image prompts, region selection with bounding boxes, YOLOE with CLIP-style embeddings for labels beyond the training set, running fully on-device.
+  tags: [computer-vision, deep-learning, research]
+
 - title: Open Vocabulary Object Detection with Multimodal and Generative Models
   url: https://github.com/sokovninn/learning-unknown
   excerpt: Master’s thesis direction — YOLO, VLMs, SAM-style workflows.
