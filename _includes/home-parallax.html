@@ -1,0 +1,36 @@
+{% comment %} Three SVG depth layers — motion via home.js {% endcomment %}
+<div class="home-hero__parallax" aria-hidden="true">
+  <svg class="home-parallax__layer js-parallax-layer" data-parallax="0.35" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" preserveAspectRatio="xMidYMid slice" focusable="false">
+    <defs>
+      <pattern id="hp-grid" width="48" height="48" patternUnits="userSpaceOnUse">
+        <path d="M48 0H0V48" fill="none" stroke="rgba(0,212,170,0.07)" stroke-width="0.5"/>
+      </pattern>
+      <linearGradient id="hp-fade" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="#060a10" stop-opacity="0"/>
+        <stop offset="55%" stop-color="#060a10" stop-opacity="0.5"/>
+        <stop offset="100%" stop-color="#060a10" stop-opacity="0.95"/>
+      </linearGradient>
+    </defs>
+    <rect width="800" height="600" fill="url(#hp-grid)"/>
+    <line x1="0" y1="280" x2="800" y2="280" stroke="rgba(0,180,150,0.12)" stroke-width="1"/>
+    <rect width="800" height="600" fill="url(#hp-fade)"/>
+  </svg>
+  <svg class="home-parallax__layer js-parallax-layer" data-parallax="0.55" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" preserveAspectRatio="xMidYMid slice" focusable="false">
+    <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M120 380 L260 320 L400 360 L540 300 L680 340" stroke="rgba(0,212,170,0.14)" stroke-width="1.2"/>
+      <circle cx="120" cy="380" r="5" fill="rgba(0,212,170,0.2)" stroke="rgba(0,212,170,0.35)" stroke-width="1"/>
+      <circle cx="260" cy="320" r="5" fill="rgba(0,212,170,0.2)" stroke="rgba(0,212,170,0.35)" stroke-width="1"/>
+      <circle cx="400" cy="360" r="6" fill="rgba(0,212,170,0.25)" stroke="rgba(0,212,170,0.45)" stroke-width="1"/>
+      <circle cx="540" cy="300" r="5" fill="rgba(0,212,170,0.2)" stroke="rgba(0,212,170,0.35)" stroke-width="1"/>
+      <circle cx="680" cy="340" r="5" fill="rgba(0,212,170,0.2)" stroke="rgba(0,212,170,0.35)" stroke-width="1"/>
+    </g>
+  </svg>
+  <svg class="home-parallax__layer js-parallax-layer" data-parallax="0.75" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" preserveAspectRatio="xMidYMid slice" focusable="false">
+    <g fill="none" opacity="0.9">
+      <ellipse cx="200" cy="140" rx="120" ry="60" stroke="rgba(0,212,170,0.1)" stroke-width="1"/>
+      <ellipse cx="620" cy="480" rx="160" ry="80" stroke="rgba(0,212,170,0.08)" stroke-width="1"/>
+      <path d="M640 120 A90 90 0 0 0 520 100" stroke="rgba(0,180,150,0.12)" stroke-width="1"/>
+      <path d="M180 500 A70 70 0 0 1 280 460" stroke="rgba(0,180,150,0.1)" stroke-width="1"/>
+    </g>
+  </svg>
+</div>

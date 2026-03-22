@@ -6,6 +6,15 @@ focus_areas:
   - Edge & cloud ML pipelines
   - Reinforcement learning & robotics
 
+# Home “pipeline” strip — labels + hover hints (ML systems story)
+pipeline:
+  - step: Data
+    hint: Datasets, synthetic generation, annotation
+  - step: Model
+    hint: Training, optimization, TensorRT, deployment
+  - step: Edge
+    hint: On-device inference & production services
+
 summary: |
   Machine learning engineer based in Prague with 5+ years of experience shipping production computer vision systems.
   I optimize models for inference, build scalable ML pipelines, and ship tools such as DataDreamer for automated dataset generation.
