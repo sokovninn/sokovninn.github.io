@@ -10,15 +10,18 @@ layout: compress
     {% include nav.html %}
     <header class="header header--home flex home-hero" role="banner">
         <div class="home-hero__bg" aria-hidden="true"></div>
-        <div class="home-hero__mesh" aria-hidden="true"></div>
+        <div class="home-hero__aurora" aria-hidden="true">
+            <span class="home-hero__aurora-band home-hero__aurora-band--a"></span>
+            <span class="home-hero__aurora-band home-hero__aurora-band--b"></span>
+        </div>
+        <div class="home-hero__grid" aria-hidden="true"></div>
         <div class="home-hero__vignette" aria-hidden="true"></div>
-        {% include home-parallax.html %}
         <div class="home-hero__grain" aria-hidden="true"></div>
         <div class="home-hero__spotlight" id="home-spotlight" aria-hidden="true"></div>
-        <div class="container animated fadeIn home-panel js-reveal">
+        <div class="container animated fadeIn home-panel">
             <div class="row">
                     <a href="{{ site.url }}">
-                        <img src="{{ site.logo }}" alt="{{ site.title }}" class="img-circle zoombtn home-logo js-parallax-logo" width="120" height="120">
+                        <img src="{{ site.logo | relative_url }}" alt="{{ site.title }}" class="img-circle zoombtn home-logo js-parallax-logo" width="120" height="120" decoding="async" fetchpriority="high">
                     </a>
                     <h3 class="title home-name">
                         <a class="zoombtn" href="{{ site.url }}">
