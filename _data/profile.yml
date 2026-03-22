@@ -11,7 +11,7 @@ pipeline:
   - step: Data
     hint: Datasets, synthetic generation, annotation
   - step: Model
-    hint: Training, optimization, TensorRT, deployment
+    hint: Training, optimization, deployment, and on-device inference
   - step: Edge
     hint: On-device inference & production services
 

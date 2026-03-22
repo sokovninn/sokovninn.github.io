@@ -15,7 +15,7 @@
   summary: Production computer vision and edge deployment; tools and pipelines used by a large developer community.
   bullets:
     - Developed and deployed custom computer vision models (YOLO, SAM, VLMs) for production.
-    - Built training and inference pipelines with TensorRT optimization and quantization.
+    - Built training and inference pipelines with optimization and quantization for edge and cloud deployment.
     - Created DataDreamer — an open-source tool for automated dataset generation using foundation models and GenAI.
     - Deployed models on edge devices and GCP with Docker and Kubernetes; maintained ML services for real-time use cases.
     - Used Airflow and related tooling for scalable ML workflows.
