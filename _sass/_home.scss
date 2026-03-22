@@ -22,6 +22,36 @@
   }
 }
 
+@keyframes homeAuroraC {
+  0% {
+    transform: translate(-2%, 4%) scale(1);
+    opacity: 0.28;
+  }
+  100% {
+    transform: translate(3%, -2%) scale(1.12);
+    opacity: 0.42;
+  }
+}
+
+@keyframes homeGridDrift {
+  0% {
+    background-position: 0 0, 0 0;
+  }
+  100% {
+    background-position: 56px 32px, -24px 40px;
+  }
+}
+
+@keyframes homeOrbitPulse {
+  0%,
+  100% {
+    opacity: 0.35;
+  }
+  50% {
+    opacity: 0.72;
+  }
+}
+
 $home-accent: #00d4aa;
 $home-accent-dim: rgba(0, 212, 170, 0.35);
 $home-slate: #0a1018;
@@ -29,6 +59,9 @@ $home-panel-border: rgba(255, 255, 255, 0.06);
 
 .body-home {
   .header.header--home {
+    /* Pointer parallax 0–1 (home.js); defaults before first pointer event */
+    --px: 0.5;
+    --py: 0.45;
     position: relative;
     min-height: 100vh;
     align-items: center;
@@ -44,13 +77,20 @@ $home-panel-border: rgba(255, 255, 255, 0.06);
     background: radial-gradient(ellipse 120% 80% at 50% 100%, #0d1824 0%, #05070c 45%, #020306 100%);
   }
 
-  /* Soft aurora bands — slow drift, no parallax SVG stack */
+  /* Soft aurora bands — slow drift + pointer parallax */
   .home-hero__aurora {
     position: absolute;
     inset: -12%;
     z-index: 1;
     pointer-events: none;
     overflow: hidden;
+    transform: translate(
+        calc((var(--px) - 0.5) * 3vw),
+        calc((var(--py) - 0.5) * 2.5vh)
+      )
+      scale(1.02);
+    will-change: transform;
+    transition: transform 0.35s ease-out;
   }
 
   .home-hero__aurora-band {
@@ -90,6 +130,27 @@ $home-panel-border: rgba(255, 255, 255, 0.06);
     transform: rotate(12deg);
   }
 
+  .home-hero__aurora-band--c {
+    width: 55%;
+    height: 55%;
+    left: 22%;
+    bottom: -8%;
+    border-radius: 50%;
+    background: radial-gradient(
+      circle at 40% 50%,
+      rgba(100, 140, 255, 0.2) 0%,
+      rgba(0, 90, 140, 0.12) 45%,
+      transparent 70%
+    );
+    filter: blur(48px);
+    opacity: 0.38;
+    mix-blend-mode: screen;
+    transform: translate(
+        calc((var(--px) - 0.5) * -25px),
+        calc((var(--py) - 0.5) * -18px)
+      );
+  }
+
   @media (prefers-reduced-motion: no-preference) {
     .home-hero__aurora-band--a {
       animation: homeAuroraA 22s ease-in-out infinite alternate;
@@ -97,14 +158,28 @@ $home-panel-border: rgba(255, 255, 255, 0.06);
     .home-hero__aurora-band--b {
       animation: homeAuroraB 26s ease-in-out infinite alternate;
     }
+    .home-hero__aurora-band--c {
+      animation: homeAuroraC 18s ease-in-out infinite alternate;
+    }
   }
 
-  /* Faint perspective grid — “signal / coordinates” without clutter */
-  .home-hero__grid {
+  /* Grid wrap: pointer parallax; inner grid: animated drift (no transform conflict) */
+  .home-hero__grid-wrap {
     position: absolute;
     inset: 0;
     z-index: 2;
     pointer-events: none;
+    transform: translate(
+        calc((var(--px) - 0.5) * -18px),
+        calc((var(--py) - 0.5) * -14px)
+      );
+    will-change: transform;
+    transition: transform 0.35s ease-out;
+  }
+
+  .home-hero__grid {
+    position: absolute;
+    inset: 0;
     opacity: 0.4;
     background-image: linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
       linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
@@ -114,11 +189,63 @@ $home-panel-border: rgba(255, 255, 255, 0.06);
     -webkit-mask-image: radial-gradient(ellipse 75% 70% at 50% 42%, rgba(0, 0, 0, 0.55) 0%, transparent 72%);
   }
 
+  @media (prefers-reduced-motion: no-preference) {
+    .home-hero__grid {
+      animation: homeGridDrift 48s linear infinite;
+    }
+  }
+
+  /* Slow orbital arcs — “inference / orbit” motif */
+  .home-hero__orbit {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    pointer-events: none;
+    overflow: hidden;
+    opacity: 0.75;
+    transform: translate(
+        calc((var(--px) - 0.5) * -25px),
+        calc((var(--py) - 0.5) * -20px)
+      );
+    transition: transform 0.4s ease-out;
+  }
+
+  .home-hero__orbit-svg {
+    position: absolute;
+    left: -8%;
+    top: -6%;
+    width: 116%;
+    height: 112%;
+    display: block;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .home-hero__orbit-ring {
+      animation: homeOrbitPulse 10s ease-in-out infinite alternate;
+    }
+    .home-hero__orbit-ring--b {
+      animation: homeOrbitPulse 10s ease-in-out infinite alternate;
+      animation-delay: -5s;
+    }
+  }
+
+  /* Particle / graph layer (canvas) */
+  .home-hero__canvas {
+    position: absolute;
+    inset: 0;
+    z-index: 3;
+    width: 100%;
+    height: 100%;
+    display: block;
+    pointer-events: none;
+    opacity: 0.9;
+  }
+
   /* Corner depth — keeps focus on center card */
   .home-hero__vignette {
     position: absolute;
     inset: 0;
-    z-index: 5;
+    z-index: 6;
     pointer-events: none;
     background: radial-gradient(
       ellipse 95% 90% at 50% 48%,
@@ -130,7 +257,7 @@ $home-panel-border: rgba(255, 255, 255, 0.06);
   .home-hero__grain {
     position: absolute;
     inset: 0;
-    z-index: 3;
+    z-index: 4;
     pointer-events: none;
     opacity: 0.16;
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='280' height='280'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
@@ -142,7 +269,7 @@ $home-panel-border: rgba(255, 255, 255, 0.06);
     --sy: 45%;
     position: absolute;
     inset: 0;
-    z-index: 4;
+    z-index: 5;
     pointer-events: none;
     background: radial-gradient(
         ellipse 58% 48% at var(--sx) var(--sy),
@@ -158,8 +285,24 @@ $home-panel-border: rgba(255, 255, 255, 0.06);
   }
 
   @media (prefers-reduced-motion: reduce) {
+    .home-hero__aurora {
+      transform: none;
+    }
     .home-hero__aurora-band--a,
-    .home-hero__aurora-band--b {
+    .home-hero__aurora-band--b,
+    .home-hero__aurora-band--c {
+      animation: none;
+      opacity: 0.45;
+    }
+    .home-hero__grid {
+      animation: none;
+    }
+    .home-hero__grid-wrap,
+    .home-hero__orbit {
+      transform: none;
+    }
+    .home-hero__orbit-ring,
+    .home-hero__orbit-ring--b {
       animation: none;
       opacity: 0.45;
     }
@@ -173,6 +316,9 @@ $home-panel-border: rgba(255, 255, 255, 0.06);
     }
     .home-logo {
       transform: none !important;
+    }
+    .home-hero__canvas {
+      display: none;
     }
   }
 

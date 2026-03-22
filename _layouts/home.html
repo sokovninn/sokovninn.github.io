@@ -13,8 +13,32 @@ layout: compress
         <div class="home-hero__aurora" aria-hidden="true">
             <span class="home-hero__aurora-band home-hero__aurora-band--a"></span>
             <span class="home-hero__aurora-band home-hero__aurora-band--b"></span>
+            <span class="home-hero__aurora-band home-hero__aurora-band--c"></span>
         </div>
-        <div class="home-hero__grid" aria-hidden="true"></div>
+        <div class="home-hero__grid-wrap" aria-hidden="true">
+            <div class="home-hero__grid"></div>
+        </div>
+        <div class="home-hero__orbit" aria-hidden="true">
+            <svg class="home-hero__orbit-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 700" preserveAspectRatio="xMidYMid slice" focusable="false">
+                <defs>
+                    <linearGradient id="ho-arc" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stop-color="rgba(0,212,170,0)" />
+                        <stop offset="45%" stop-color="rgba(0,200,175,0.22)" />
+                        <stop offset="100%" stop-color="rgba(80,160,220,0.12)" />
+                    </linearGradient>
+                </defs>
+                <g fill="none" stroke="url(#ho-arc)" stroke-width="0.9" stroke-linecap="round" opacity="0.85">
+                    <ellipse class="home-hero__orbit-ring" cx="450" cy="340" rx="320" ry="210" transform="rotate(-12 450 340)" />
+                    <ellipse class="home-hero__orbit-ring home-hero__orbit-ring--b" cx="480" cy="380" rx="260" ry="180" transform="rotate(8 480 380)" />
+                </g>
+                <g fill="rgba(0,212,170,0.35)">
+                    <circle cx="130" cy="220" r="2" />
+                    <circle cx="780" cy="480" r="2.5" />
+                    <circle cx="720" cy="160" r="1.8" />
+                </g>
+            </svg>
+        </div>
+        <canvas class="home-hero__canvas js-home-canvas" aria-hidden="true"></canvas>
         <div class="home-hero__vignette" aria-hidden="true"></div>
         <div class="home-hero__grain" aria-hidden="true"></div>
         <div class="home-hero__spotlight" id="home-spotlight" aria-hidden="true"></div>
