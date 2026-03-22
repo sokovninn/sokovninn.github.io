@@ -9,6 +9,8 @@ background:         false
 tiled_bg:           false
 locale:             en_US
 url:                https://sokovninn.github.io
+# Required for jekyll-github-metadata in CI / local builds without git remote (github-pages gem)
+repository:         sokovninn/sokovninn.github.io
 
 # Jekyll
 permalink:          /:title/
