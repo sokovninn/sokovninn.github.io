@@ -67,10 +67,11 @@
     <!-- JS -->
     <script src="{{ site.url }}/assets/js/modernizr-3.3.1.custom.min.js"></script>
     {% include seo-json-ld.html %}
-    <!-- Favicons (SVG + PNG; match site logo / brand) -->
-    <link rel="icon" href="{{ site.url }}/assets/img/logo.svg" type="image/svg+xml">
-    <link rel="icon" href="{{ site.url }}/favicon.png" type="image/png" sizes="512x512">
-    <link rel="apple-touch-icon" href="{{ site.url }}/assets/img/apple-touch-icon.png">
+    <!-- Favicons: PNG at real pixel sizes for crisp tab icons; SVG for supporting browsers -->
+    <link rel="icon" href="{{ site.url }}/assets/img/favicon-16x16.png" type="image/png" sizes="16x16">
+    <link rel="icon" href="{{ site.url }}/assets/img/favicon-32x32.png" type="image/png" sizes="32x32">
+    <link rel="icon" href="{{ site.url }}/assets/img/logo.svg" type="image/svg+xml" sizes="any">
+    <link rel="apple-touch-icon" href="{{ site.url }}/assets/img/apple-touch-icon.png" sizes="180x180">
     <!-- Background Image -->
     {% if site.background %}
     {% capture background %}{{ site.background }}{% endcapture %}

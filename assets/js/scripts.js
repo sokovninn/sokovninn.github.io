@@ -25,6 +25,8 @@ $(document).ready(function() {
         $(".wrapper").removeClass("fadeOut").addClass("fadeIn");
     }
     $(".zoombtn").click(function() {
+        // Home uses .container for the hero; fadeOut leaves opacity 0 (animate.css fill-mode) and hides the whole panel.
+        if ($("body").hasClass("body-home")) return;
         $(".container").removeClass("fadeIn").addClass("fadeOut");
         $(".wrapper").removeClass("fadeIn").addClass("fadeOut");
     });

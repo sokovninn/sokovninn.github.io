@@ -45,7 +45,7 @@
     stroke-opacity="0.38"
     stroke-linecap="round"/>
 
-  <!-- Peripheral sensors -->
+  <!-- Peripheral sensor nodes -->
   <circle cx="60" cy="34" r="3.6" fill="url(#logoAccent)" opacity="0.95"/>
   <circle cx="82.516" cy="47" r="3.6" fill="url(#logoAccent)" opacity="0.95"/>
   <circle cx="82.516" cy="73" r="3.6" fill="url(#logoAccent)" opacity="0.95"/>
@@ -58,6 +58,6 @@
   <circle cx="60" cy="60" r="10" fill="url(#logoCore)" filter="url(#logoSoft)"/>
   <circle cx="60" cy="60" r="4.2" fill="#05080c" opacity="0.88"/>
 
-  <!-- Micro accent: scan tick -->
+  <!-- Micro accent: scan tick -->
   <path d="M60 22 L60 26" stroke="url(#logoAccent)" stroke-width="1.6" stroke-linecap="round" opacity="0.9"/>
 </svg>
