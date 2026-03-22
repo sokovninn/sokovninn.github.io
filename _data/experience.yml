@@ -1,10 +1,10 @@
-# Career timeline — used on CV (interactive timeline)
+# Career timeline — CV page (bullets from résumé PDF)
 - role: Machine Learning Engineer
   company: EPAM Systems
   location: Prague Metropolitan Area
   start: Dec 2025
   end: Present
-  summary: ML engineering in a global delivery environment.
+  summary: Hands-on ML engineering in a global delivery environment — building on prior production CV and edge experience.
   tags: [cv, ml, engineering]
 
 - role: ML Engineer
@@ -12,29 +12,43 @@
   location: Prague, Czechia
   start: Aug 2022
   end: Oct 2025
-  summary: Edge AI and computer vision—on-device neural networks, cameras, and developer-facing ML tooling (e.g. OAK ecosystem).
+  summary: Production computer vision and edge deployment; tools and pipelines used by a large developer community.
+  bullets:
+    - Developed and deployed custom computer vision models (YOLO, SAM, VLMs) for production.
+    - Built training and inference pipelines with TensorRT optimization and quantization.
+    - Created DataDreamer — an open-source tool for automated dataset generation using foundation models and GenAI.
+    - Deployed models on edge devices and GCP with Docker and Kubernetes; maintained ML services for real-time use cases.
+    - Used Airflow and related tooling for scalable ML workflows.
+  stack: "PyTorch · Computer Vision · NLP · GCP · Docker · Kubernetes · Airflow"
   tags: [cv, ml, edge, robotics]
 
-- role: Junior Researcher
-  company: Czech Institute of Informatics, Robotics and Cybernetics (CIIRC)
+- role: Student Researcher
+  company: Applied Algebra and Geometry group, Czech Institute of Informatics, Robotics and Cybernetics (CIIRC)
   location: Prague, Czechia
   start: Oct 2020
   end: Jun 2023
-  summary: Research across ML and robotics with applied prototypes.
+  summary: Research on perception and uncertainty in 3D environments.
+  bullets:
+    - Researched methods enabling robots to recognize their own uncertainty and reason in a 3D world.
+  stack: "Open Set Recognition · Instance Segmentation"
   tags: [research, robotics, ml]
 
-- role: Research Assistant / ML Engineer
-  company: Czech Institute of Informatics, Robotics and Cybernetics (CIIRC)
+- role: ML Engineer
+  company: Robot Perception group, Czech Institute of Informatics, Robotics and Cybernetics (CIIRC)
   location: Czech Republic
-  start: Jul 2019
+  start: Jun 2019
   end: Sep 2020
-  summary: Research software and ML experiments in an academic setting.
-  tags: [research, ml]
+  summary: RL simulation tooling and research with publication output.
+  bullets:
+    - Built myGym — a toolkit for training RL algorithms in robotic simulation.
+    - Researched RL for non-prehensile tasks; published at ICCAR 2021.
+  stack: "Python · PyTorch · RL · Computer Vision · Robotics"
+  tags: [research, ml, robotics]
 
 - role: HW Student Engineer, Multi-robot Systems Group
   company: Czech Technical University in Prague
   location: Czech Republic
   start: Feb 2019
   end: Jun 2019
-  summary: Hardware and robotics coursework support in a multi-robot lab.
+  summary: Hardware and robotics lab support alongside studies.
   tags: [robotics, hardware]

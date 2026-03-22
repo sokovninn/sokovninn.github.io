@@ -20,6 +20,13 @@ layout: compress
 
                 {{ content }}
 
+                {% if site.data.contact.publications_url %}
+                <section class="cv-section cv-contact" aria-labelledby="cv-pub-heading">
+                    <h2 id="cv-pub-heading">Publications</h2>
+                    <p class="cv-pub-line"><a href="{{ site.data.contact.publications_url }}" rel="noopener noreferrer" target="_blank">Semantic Scholar</a></p>
+                </section>
+                {% endif %}
+
                 <div class="cv-pills" id="cv-pills" role="group" aria-label="Filter experience by focus">
                     <span class="cv-pills__label">Focus:</span>
                     <button type="button" class="cv-pill is-active" data-tag="all" aria-pressed="true">All</button>
@@ -33,18 +40,35 @@ layout: compress
                 <section class="cv-section cv-timeline" id="cv-timeline" aria-labelledby="cv-exp-heading">
                     <h2 id="cv-exp-heading">Experience</h2>
                     {% for job in site.data.experience %}
-                    <article class="timeline-item js-timeline-item{% if forloop.first %} is-open{% endif %}"
+                    {% assign open_job = false %}{% if forloop.index == 2 %}{% assign open_job = true %}{% endif %}
+                    <article class="timeline-item js-timeline-item{% if open_job %} is-open{% endif %}"
                              data-tags="{{ job.tags | join: ',' }}">
-                        <button type="button" class="timeline-item__head" aria-expanded="{% if forloop.first %}true{% else %}false{% endif %}" id="tl-btn-{{ forloop.index }}">
+                        <button type="button" class="timeline-item__head" aria-expanded="{% if open_job %}true{% else %}false{% endif %}" id="tl-btn-{{ forloop.index }}">
                             <span class="timeline-item__title">{{ job.role }}</span>
                             <span class="timeline-item__company">{{ job.company }}</span>
                             <span class="timeline-item__meta">{{ job.start }} — {{ job.end }}{% if job.location %} · {{ job.location }}{% endif %}</span>
                         </button>
-                        <div class="timeline-item__body" id="tl-panel-{{ forloop.index }}" {% unless forloop.first %}hidden{% endunless %}>
-                            <p>{{ job.summary }}</p>
+                        <div class="timeline-item__body" id="tl-panel-{{ forloop.index }}" {% unless open_job %}hidden{% endunless %}>
+                            <p class="timeline-item__lede">{{ job.summary }}</p>
+                            {% if job.bullets %}
+                            <ul class="timeline-item__bullets">
+                                {% for b in job.bullets %}<li>{{ b }}</li>{% endfor %}
+                            </ul>
+                            {% endif %}
+                            {% if job.stack %}<p class="timeline-item__stack">{{ job.stack }}</p>{% endif %}
                         </div>
                     </article>
                     {% endfor %}
+                </section>
+
+                <section class="cv-section" aria-labelledby="cv-skills-heading">
+                    <h2 id="cv-skills-heading">Skills</h2>
+                    <dl class="cv-skills">
+                        <dt>Programming</dt><dd>{{ site.data.skills.programming }}</dd>
+                        <dt>ML stack</dt><dd>{{ site.data.skills.ml_stack }}</dd>
+                        <dt>Infrastructure</dt><dd>{{ site.data.skills.infrastructure }}</dd>
+                        <dt>Other</dt><dd>{{ site.data.skills.other }}</dd>
+                    </dl>
                 </section>
 
                 <section class="cv-section" aria-labelledby="cv-edu-heading">
@@ -74,6 +98,18 @@ layout: compress
                         <li><strong>Czech</strong> — Professional working proficiency</li>
                         <li><strong>Russian</strong> — Native or bilingual proficiency</li>
                     </ul>
+                </section>
+
+                <section class="cv-section" aria-labelledby="cv-act-heading">
+                    <h2 id="cv-act-heading">Activities</h2>
+                    <ul class="cv-edu-list">
+                        {% for line in site.data.activities %}<li>{{ line }}</li>{% endfor %}
+                    </ul>
+                </section>
+
+                <section class="cv-section" aria-labelledby="cv-int-heading">
+                    <h2 id="cv-int-heading">Interests</h2>
+                    <p class="cv-interests">{{ site.data.interests.text | strip | newline_to_br }}</p>
                 </section>
             </div>
         </div>

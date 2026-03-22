@@ -256,6 +256,58 @@ body:not(.body-home) {
     font-size: 0.88rem;
     color: $color_stack;
   }
+
+  .cv-pub-line {
+    margin: 0;
+    a {
+      color: $info;
+      font-weight: 600;
+    }
+  }
+
+  .cv-skills {
+    margin: 0;
+    dt {
+      font-weight: 700;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: $color_stack;
+      margin-top: 0.75rem;
+      &:first-child {
+        margin-top: 0;
+      }
+    }
+    dd {
+      margin: 0.25rem 0 0 0;
+      padding: 0;
+      line-height: 1.5;
+    }
+  }
+
+  .timeline-item__lede {
+    margin: 0 0 0.5rem;
+  }
+
+  .timeline-item__bullets {
+    margin: 0.35rem 0 0.65rem 1.1rem;
+    padding: 0;
+    li {
+      margin-bottom: 0.35rem;
+    }
+  }
+
+  .timeline-item__stack {
+    font-size: 0.82rem;
+    color: $color_stack;
+    margin: 0;
+    font-style: italic;
+  }
+
+  .cv-interests {
+    line-height: 1.55;
+    margin: 0;
+  }
 }
 
 // Projects page
@@ -305,6 +357,25 @@ body:not(.body-home) {
     background: rgba(0, 0, 0, 0.05);
     color: $color_stack;
     text-transform: capitalize;
+  }
+
+  .project-card__title-text {
+    font-weight: 600;
+    color: $color_shark;
+  }
+
+  .project-card__note {
+    font-size: 0.85rem;
+    color: $color_stack;
+    font-style: italic;
+    margin: 0.35rem 0 0;
+  }
+
+  .project-card__nolink {
+    display: inline-block;
+    font-size: 0.82rem;
+    color: $color_stack;
+    margin-top: 0.35rem;
   }
 }
 

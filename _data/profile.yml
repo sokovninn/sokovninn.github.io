@@ -1,12 +1,12 @@
 # Short copy for home / nav — edit here to update sitewide blurbs
 tagline: Machine Learning Engineer
-location: Prague Metropolitan Area, Czech Republic
+location: Prague, Czech Republic
 focus_areas:
-  - Computer vision
-  - Deep learning & edge AI
-  - Reinforcement learning
-  - Robotics
+  - Production computer vision
+  - Edge & cloud ML pipelines
+  - Reinforcement learning & robotics
 
 summary: |
-  I work on machine learning for real-world systems—from research prototypes to models that run on device.
-  I care about computer vision, spatial AI, and making robust software around ML pipelines.
+  Machine learning engineer based in Prague with 5+ years of experience shipping production computer vision systems.
+  I optimize models for inference, build scalable ML pipelines, and ship tools such as DataDreamer for automated dataset generation.
+  Execution-focused: end-to-end ownership from research prototypes to services used by thousands of users.

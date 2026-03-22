@@ -1,0 +1,5 @@
+# Skill groups — mirrors CV PDF
+programming: "Python, C/C++, Java, JavaScript"
+ml_stack: "PyTorch, OpenCV, NumPy, Pandas"
+infrastructure: "Docker, Kubernetes, GCP, SQL"
+other: "Git, Linux, CI/CD, model deployment"

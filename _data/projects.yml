@@ -1,18 +1,29 @@
-# Highlighted public work — edit URLs and descriptions as needed
+# Highlighted work — align with CV; add URLs when public
+- title: DataDreamer
+  url: ""
+  excerpt: Open-source automated dataset generation using foundation CV models and GenAI — Python, PyTorch.
+  tags: [computer-vision, deep-learning, research]
+  note: "Open source (Luxonis)"
+
+- title: Open Vocabulary Object Detection with Multimodal and Generative Models
+  url: https://github.com/sokovninn/learning-unknown
+  excerpt: Master’s thesis direction — YOLO, VLMs, SAM-style workflows.
+  tags: [computer-vision, research]
+
+- title: myGym
+  url: https://github.com/sokovninn/multippo2
+  excerpt: Toolkit for training RL algorithms on robotic manipulation and navigation — fast prototyping and benchmarks.
+  tags: [reinforcement-learning, robotics]
+
+- title: CROW
+  url: ""
+  excerpt: Collaborative robotic workspace — Python, PyTorch, ROS.
+  tags: [robotics, research]
+
 - title: RecFormer
   url: https://github.com/sokovninn/RecFormer
   excerpt: KAIST AI506 term project — structured prediction and deep learning.
   tags: [deep-learning, research]
-
-- title: multippo2 (myGym)
-  url: https://github.com/sokovninn/multippo2
-  excerpt: Fast RL prototyping for robotic manipulation and navigation; benchmarks and multi-task training features.
-  tags: [reinforcement-learning, robotics]
-
-- title: learning-unknown
-  url: https://github.com/sokovninn/learning-unknown
-  excerpt: Open-set 3D object detection experiments.
-  tags: [computer-vision, research]
 
 - title: YOLOv6-LP-detection
   url: https://github.com/sokovninn/YOLOv6-LP-detection

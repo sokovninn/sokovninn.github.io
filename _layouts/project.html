@@ -31,11 +31,17 @@ layout: compress
 
                 <div class="post-list project-grid" id="project-grid">
                     {% for proj in site.data.projects %}
+                    {% assign proj_url = proj.url | strip %}
                     <article class="project-card js-project-card" data-tags="{{ proj.tags | join: ',' }}">
-                        <h3 class="project-card__title"><a class="zoombtn" href="{{ proj.url }}" rel="noopener noreferrer" target="_blank">{{ proj.title }}</a></h3>
+                        <h3 class="project-card__title">{% if proj_url != '' %}<a class="zoombtn" href="{{ proj_url }}" rel="noopener noreferrer" target="_blank">{{ proj.title }}</a>{% else %}<span class="project-card__title-text">{{ proj.title }}</span>{% endif %}</h3>
                         <p>{{ proj.excerpt }}</p>
+                        {% if proj.note %}<p class="project-card__note">{{ proj.note }}</p>{% endif %}
                         <p class="project-card__tags">{% for t in proj.tags %}<span class="project-tag">{{ t | replace: '-', ' ' }}</span>{% endfor %}</p>
-                        <a href="{{ proj.url }}" class="btn zoombtn" rel="noopener noreferrer" target="_blank">Repository</a>
+                        {% if proj_url != '' %}
+                        <a href="{{ proj_url }}" class="btn zoombtn" rel="noopener noreferrer" target="_blank">Repository</a>
+                        {% else %}
+                        <span class="project-card__nolink">Link not public — see CV for context.</span>
+                        {% endif %}
                     </article>
                     {% endfor %}
                 </div>

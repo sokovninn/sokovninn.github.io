@@ -5,12 +5,12 @@ date: 2026-03-22
 comments: false
 ---
 
-I’m **Nikita Sokovnin**, a machine learning engineer based in the **Prague** area. I’m motivated by problems that sit at the intersection of **computer vision**, **robotics**, and **reliable software**: taking models from research ideas to something that runs in the real world—including **on-device** and **edge** settings.
+I’m **Nikita Sokovnin**, a machine learning engineer in **Prague** with **5+ years** of experience shipping **production computer vision** systems and applications. I focus on **inference optimization**, **scalable ML pipelines**, and tools that speed up real-world delivery—including **DataDreamer**, an open-source project for **automated dataset generation** with foundation models and GenAI.
 
-My background mixes **academic research** (CIIRC, CTU) with **product-oriented ML** (Luxonis: spatial AI, cameras, and developer tooling). Since late **2025** I’ve been at **EPAM** continuing hands-on ML engineering.
+I’ve worked across **research and production**: at **CIIRC** I contributed to **robot perception** and **RL** (including the **myGym** toolkit and work published at **ICCAR 2021**); at **Luxonis** I built and deployed **YOLO / SAM / VLM**-style pipelines with **TensorRT**, **Docker**, **Kubernetes**, and **GCP**; since **late 2025** I’m at **EPAM** continuing hands-on ML engineering.
 
-**Education:** Master’s in **Computer Vision** (CTU FEL), an exchange at **KAIST** focused on AI, and a BSc in informatics from CTU. I also took graduate ML coursework at **Charles University** through the prg.ai Minor.
+**Education:** Master’s in **Computer Vision** (CTU FEL) — thesis on **open-vocabulary detection** with multimodal and generative models; **KAIST** exchange in AI; **BSc** with thesis on **open-set 3D object detection**; graduate ML at **Charles University** (prg.ai Minor).
 
-Outside of work I like digging into **reinforcement learning**, **detection and segmentation**, and tooling that makes experiments reproducible.
+Outside of work I stay curious about **RL**, **detection and segmentation**, and **new AI tooling**. I’m a member of **Upsilon Pi Epsilon**, enjoy **hackathons**, **hiking**, **skiing**, and **jogging**, and I like **computer and board games**.
 
-If you want the full timeline, see [CV](/cv/); for code, [GitHub](https://github.com/sokovninn) and [LinkedIn](https://www.linkedin.com/in/nikita-sokovnin-250939198/) are the best places to connect.
+For the full timeline and skills, see [CV](/cv/). For code, [GitHub](https://github.com/sokovninn); for publications, use the link on the CV page (**Semantic Scholar**).
