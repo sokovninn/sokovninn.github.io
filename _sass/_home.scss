@@ -58,16 +58,39 @@ $home-slate: #0a1018;
 $home-panel-border: rgba(255, 255, 255, 0.06);
 
 .body-home {
+  /* Override Moon’s .flex (row + wrap): single column so the card stays centered */
+  .header.header--home.flex {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
   .header.header--home {
     /* Pointer parallax 0–1 (home.js); defaults before first pointer event */
     --px: 0.5;
     --py: 0.45;
     position: relative;
     min-height: 100vh;
-    align-items: center;
-    justify-content: center;
     overflow: hidden;
     padding: 2rem 0;
+  }
+
+  .header.header--home .container.home-panel {
+    position: relative;
+    z-index: 10;
+    flex: 0 0 auto;
+    width: 100%;
+    max-width: 36rem;
+    margin-left: auto;
+    margin-right: auto;
+    box-sizing: border-box;
+    border: 1px solid $home-panel-border;
+    box-shadow: 0 24px 80px rgba(0, 0, 0, 0.45), 0 0 0 1px rgba(255, 255, 255, 0.04) inset;
+    background: linear-gradient(180deg, #fafcfd 0%, #eef2f6 100%);
   }
 
   .home-hero__bg {
@@ -322,20 +345,18 @@ $home-panel-border: rgba(255, 255, 255, 0.06);
     }
   }
 
+  .home-logo-link {
+    display: inline-block;
+    margin: 0 auto;
+    line-height: 0;
+  }
+
   .home-logo.img-circle {
     object-fit: cover;
     flex-shrink: 0;
     border-color: rgba(0, 212, 170, 0.55);
     box-shadow: 0 0 0 1px rgba(0, 212, 170, 0.12), 0 0 28px rgba(0, 212, 170, 0.12), 0 14px 36px rgba(0, 0, 0, 0.4);
     background-color: #0a1018;
-  }
-
-  .home-panel {
-    position: relative;
-    z-index: 10;
-    border: 1px solid $home-panel-border;
-    box-shadow: 0 24px 80px rgba(0, 0, 0, 0.45), 0 0 0 1px rgba(255, 255, 255, 0.04) inset;
-    background: linear-gradient(180deg, #fafcfd 0%, #eef2f6 100%);
   }
 
   .home-name__text {
