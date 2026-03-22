@@ -1,9 +1,8 @@
 # Highlighted work — align with CV; add URLs when public
 - title: DataDreamer
-  url: ""
-  excerpt: Open-source automated dataset generation using foundation CV models and GenAI — Python, PyTorch.
+  url: https://github.com/luxonis/datadreamer
+  excerpt: Annotated datasets from scratch using GenAI and foundation CV models — synthetic data, prompts, and OWL/SAM-style annotation; pip-installable toolkit (Luxonis).
   tags: [computer-vision, deep-learning, research]
-  note: "Open source (Luxonis)"
 
 - title: Open Vocabulary Object Detection with Multimodal and Generative Models
   url: https://github.com/sokovninn/learning-unknown
@@ -24,21 +23,6 @@
   url: https://github.com/sokovninn/RecFormer
   excerpt: KAIST AI506 term project — structured prediction and deep learning.
   tags: [deep-learning, research]
-
-- title: YOLOv6-LP-detection
-  url: https://github.com/sokovninn/YOLOv6-LP-detection
-  excerpt: Object detection experiments built on YOLOv6 for industrial-style applications.
-  tags: [computer-vision, detection]
-
-- title: yolact-artwin
-  url: https://github.com/sokovninn/yolact-artwin
-  excerpt: Instance segmentation fork based on YOLACT — research and prototyping.
-  tags: [computer-vision, segmentation]
-
-- title: neural-style-transfer
-  url: https://github.com/sokovninn/neural-style-transfer
-  excerpt: Neural style transfer experiments.
-  tags: [deep-learning, cv]
 
 - title: android-game
   url: https://github.com/sokovninn/android-game
