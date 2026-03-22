@@ -1,0 +1,40 @@
+# Career timeline — used on CV (interactive timeline)
+- role: Machine Learning Engineer
+  company: EPAM Systems
+  location: Prague Metropolitan Area
+  start: Dec 2025
+  end: Present
+  summary: ML engineering in a global delivery environment.
+  tags: [cv, ml, engineering]
+
+- role: ML Engineer
+  company: Luxonis
+  location: Prague, Czechia
+  start: Aug 2022
+  end: Oct 2025
+  summary: Edge AI and computer vision—on-device neural networks, cameras, and developer-facing ML tooling (e.g. OAK ecosystem).
+  tags: [cv, ml, edge, robotics]
+
+- role: Junior Researcher
+  company: Czech Institute of Informatics, Robotics and Cybernetics (CIIRC)
+  location: Prague, Czechia
+  start: Oct 2020
+  end: Jun 2023
+  summary: Research across ML and robotics with applied prototypes.
+  tags: [research, robotics, ml]
+
+- role: Research Assistant / ML Engineer
+  company: Czech Institute of Informatics, Robotics and Cybernetics (CIIRC)
+  location: Czech Republic
+  start: Jul 2019
+  end: Sep 2020
+  summary: Research software and ML experiments in an academic setting.
+  tags: [research, ml]
+
+- role: HW Student Engineer, Multi-robot Systems Group
+  company: Czech Technical University in Prague
+  location: Czech Republic
+  start: Feb 2019
+  end: Jun 2019
+  summary: Hardware and robotics coursework support in a multi-robot lab.
+  tags: [robotics, hardware]

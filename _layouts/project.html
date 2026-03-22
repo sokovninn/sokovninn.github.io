@@ -2,43 +2,46 @@
 layout: compress
 ---
 <!DOCTYPE html>
-<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8"><![endif]-->
-<!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9"><![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js"><!--<![endif]-->
+<html class="no-js" lang="en">
 <head>
     {% include head.html %}
 </head>
 <body>
     {% include nav.html %}
-    <!-- Header -->
     <header class="header" role="banner">
         <div class="wrapper animated fadeIn">
-            <div class="content">
+            <div class="content projects-page">
                 <div class="post-title">
                     <h1>{{ page.title }}</h1>
-                    <a class="btn zoombtn" href="{{site.url}}">
+                    <a class="btn zoombtn" href="{{ site.url }}/">
                         <i class="fa fa-home"></i>
                     </a>
                 </div>
-                <div class="post-list">
-                    {% for post in site.posts %} 
-                        {% if post.project %}
-                    <ul>
-                        <li class="wow fadeInLeft" data-wow-duration="1.5s">
-                            <a class="zoombtn" href="{{ site.url }}{{ post.url }}">{{ post.title }}</a>
-                            <p>{{ post.excerpt }}</p>
-                            <a href="{{ site.url }}{{ post.url }}" class="btn zoombtn">Read More</a>
-                        </li>
-                    </ul>
-                      {% endif %}
+                <p class="projects-intro">Public repositories and side projects. Tag filters match areas of interest.</p>
+
+                <div class="cv-pills project-pills" id="project-pills" role="group" aria-label="Filter projects">
+                    <span class="cv-pills__label">Focus:</span>
+                    <button type="button" class="cv-pill is-active" data-tag="all" aria-pressed="true">All</button>
+                    <button type="button" class="cv-pill" data-tag="computer-vision" aria-pressed="false">Computer vision</button>
+                    <button type="button" class="cv-pill" data-tag="deep-learning" aria-pressed="false">Deep learning</button>
+                    <button type="button" class="cv-pill" data-tag="reinforcement-learning" aria-pressed="false">RL</button>
+                    <button type="button" class="cv-pill" data-tag="robotics" aria-pressed="false">Robotics</button>
+                    <button type="button" class="cv-pill" data-tag="research" aria-pressed="false">Research</button>
+                </div>
+
+                <div class="post-list project-grid" id="project-grid">
+                    {% for proj in site.data.projects %}
+                    <article class="project-card js-project-card" data-tags="{{ proj.tags | join: ',' }}">
+                        <h3 class="project-card__title"><a class="zoombtn" href="{{ proj.url }}" rel="noopener noreferrer" target="_blank">{{ proj.title }}</a></h3>
+                        <p>{{ proj.excerpt }}</p>
+                        <p class="project-card__tags">{% for t in proj.tags %}<span class="project-tag">{{ t | replace: '-', ' ' }}</span>{% endfor %}</p>
+                        <a href="{{ proj.url }}" class="btn zoombtn" rel="noopener noreferrer" target="_blank">Repository</a>
+                    </article>
                     {% endfor %}
                 </div>
             </div>
         </div>
     </header>
     {% include scripts.html %}
-    <script src="{{ site.url }}/assets/js/wow.min.js"></script>
-    <script type="text/javascript">(new WOW).init();</script>
 </body>
 </html>

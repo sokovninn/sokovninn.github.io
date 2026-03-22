@@ -1,0 +1,35 @@
+# Highlighted public work — edit URLs and descriptions as needed
+- title: RecFormer
+  url: https://github.com/sokovninn/RecFormer
+  excerpt: KAIST AI506 term project — structured prediction and deep learning.
+  tags: [deep-learning, research]
+
+- title: multippo2 (myGym)
+  url: https://github.com/sokovninn/multippo2
+  excerpt: Fast RL prototyping for robotic manipulation and navigation; benchmarks and multi-task training features.
+  tags: [reinforcement-learning, robotics]
+
+- title: learning-unknown
+  url: https://github.com/sokovninn/learning-unknown
+  excerpt: Open-set 3D object detection experiments.
+  tags: [computer-vision, research]
+
+- title: YOLOv6-LP-detection
+  url: https://github.com/sokovninn/YOLOv6-LP-detection
+  excerpt: Object detection experiments built on YOLOv6 for industrial-style applications.
+  tags: [computer-vision, detection]
+
+- title: yolact-artwin
+  url: https://github.com/sokovninn/yolact-artwin
+  excerpt: Instance segmentation fork based on YOLACT — research and prototyping.
+  tags: [computer-vision, segmentation]
+
+- title: neural-style-transfer
+  url: https://github.com/sokovninn/neural-style-transfer
+  excerpt: Neural style transfer experiments.
+  tags: [deep-learning, cv]
+
+- title: android-game
+  url: https://github.com/sokovninn/android-game
+  excerpt: Roguelike game for Android — side project.
+  tags: [software]

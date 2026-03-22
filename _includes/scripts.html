@@ -5,6 +5,9 @@
     <script src="{{ site.url }}/assets/js/jquery.magnific-popup.min.js"></script>
     <script src="{{ site.url }}/assets/js/jquery.fitvid.min.js"></script>
     <script src="{{ site.url }}/assets/js/scripts.js"></script>
+    {% if page.layout == 'cv' or page.layout == 'project' %}
+    <script src="{{ site.url }}/assets/js/interactive.js" defer></script>
+    {% endif %}
     {% if site.google.analytics %}
     <!-- Asynchronous Google Analytics snippet -->
     <script>
@@ -17,6 +20,6 @@
       ga('send', 'pageview');
     </script>
     {% endif %}
-    {% if page.comments != false %}
+    {% if site.disqus_shortname and page.comments != false %}
         {% include disqus_comments.html %}
     {% endif %}

@@ -2,49 +2,45 @@
 layout: compress
 ---
 <!DOCTYPE html>
-<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8"><![endif]-->
-<!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9"><![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js"><!--<![endif]-->
+<html class="no-js" lang="en">
 <head>
     {% include head.html %}
 </head>
-<body>
+<body class="body-home">
     {% include nav.html %}
-    <!-- Header -->
-    <header class="header flex" role="banner">
-        <div class="container animated fadeIn bg-gradient-dark">
+    <header class="header header--home flex home-hero" role="banner">
+        <div class="home-hero__bg" aria-hidden="true"></div>
+        <div class="home-hero__grain" aria-hidden="true"></div>
+        <div class="home-hero__spotlight" id="home-spotlight" aria-hidden="true"></div>
+        <div class="container animated fadeIn home-panel js-reveal">
             <div class="row">
                     <a href="{{ site.url }}">
-                        <img src="{{ site.logo }}" class="img-circle zoombtn animated rotateIn">
+                        <img src="{{ site.logo }}" alt="{{ site.title }}" class="img-circle zoombtn home-logo js-parallax-logo" width="120" height="120">
                     </a>
-                    <h3 class="title">
+                    <h3 class="title home-name">
                         <a class="zoombtn" href="{{ site.url }}">
-                        	<p style="font-size:1.2rem;font-weight:300">{{ site.title }}</p>
+                        	<span class="home-name__text">{{ site.title }}</span>
 			            </a>
                     </h3>
+                    <p class="home-role">{{ site.data.profile.tagline }} · {{ site.data.profile.location }}</p>
                     <hr class="hr-line">
-                    <h3 class="title">
-                        <a href="{{ site.url }}">
-                        	<p style="font-size:1rem;font-weight:300">{{ site.bio }}</p>
-			            </a>
-                    </h3>
+                    <p class="home-summary">{{ site.data.profile.summary | strip | newline_to_br }}</p>
+                    <p class="home-focus">
+                        {% for area in site.data.profile.focus_areas %}
+                        <span class="home-focus__item">{{ area }}</span>{% unless forloop.last %} · {% endunless %}
+                        {% endfor %}
+                    </p>
                     {% include social-links.html %}
                   <hr class="hr-line">
-                  <h3 class="title">
-                         <a class="btn zoombtn" href="{{ site.url }}/about">
-                         About
-                         </a>
-                         <a class="btn zoombtn" href="{{ site.url }}/posts">
-                         Posts
-                         </a>
-                         <a class="btn zoombtn" href="{{ site.url }}/projects">
-                         Projects
-                         </a>
+                  <h3 class="title home-cta">
+                         <a class="btn zoombtn" href="{{ site.url }}/about/">About</a>
+                         <a class="btn zoombtn" href="{{ site.url }}/cv/">CV</a>
+                         <a class="btn zoombtn" href="{{ site.url }}/projects/">Projects</a>
                  </h3>
             </div>
         </div>
     </header>
     {% include scripts.html %}
+    <script src="{{ site.url }}/assets/js/home.js" defer></script>
 </body>
 </html>

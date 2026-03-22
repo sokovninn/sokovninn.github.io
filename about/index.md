@@ -1,37 +1,16 @@
 ---
 layout: page
-title: About the Theme
-tags: [about, Jekyll, theme, moon]
-date: 2016-03-21
+title: About
+date: 2026-03-22
 comments: false
 ---
-    
-<center><a href="http://taylantatli.github.io/Moon"><b>Moon</b></a> is a minimal, one column jekyll theme.</center>
 
-## Features
-* Minimal, you can focus on your content
-* Responsive
-* Disqus integration
-* Syntax highlighting
-* Optional post image
-* Social icons
-* Page for sharing projects
-* Optional background image
-* Simple navigation menu
-* MathJax support
+I’m **Nikita Sokovnin**, a machine learning engineer based in the **Prague** area. I’m motivated by problems that sit at the intersection of **computer vision**, **robotics**, and **reliable software**: taking models from research ideas to something that runs in the real world—including **on-device** and **edge** settings.
 
-## Preview
+My background mixes **academic research** (CIIRC, CTU) with **product-oriented ML** (Luxonis: spatial AI, cameras, and developer tooling). Since late **2025** I’ve been at **EPAM** continuing hands-on ML engineering.
 
-{% capture images %}
-    https://cloud.githubusercontent.com/assets/754514/14509720/61c61058-01d6-11e6-93ab-0918515ecd56.png
-    https://cloud.githubusercontent.com/assets/754514/14509716/61ac6c8e-01d6-11e6-879f-8308883de790.png
-{% endcapture %}
-{% include gallery images=images caption="Screenshots of Moon Theme" cols=2 %}
+**Education:** Master’s in **Computer Vision** (CTU FEL), an exchange at **KAIST** focused on AI, and a BSc in informatics from CTU. I also took graduate ML coursework at **Charles University** through the prg.ai Minor.
 
-See a [live version of Moon](http://taylantatli.github.io/Moon) hosted on GitHub.
+Outside of work I like digging into **reinforcement learning**, **detection and segmentation**, and tooling that makes experiments reproducible.
 
-## Getting Started
-
-To learn how to install and use this theme check out the [Setup Guide](http://taylantatli.me/Moon/moon-theme/) for more information.
-      
-[Install Moon](https://github.com/TaylanTatli/Moon){: .btn}
+If you want the full timeline, see [CV](/cv/); for code, [GitHub](https://github.com/sokovninn) and [LinkedIn](https://www.linkedin.com/in/nikita-sokovnin-250939198/) are the best places to connect.

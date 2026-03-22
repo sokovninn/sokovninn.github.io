@@ -2,10 +2,7 @@
 layout: compress
 ---
 <!DOCTYPE html>
-<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8"><![endif]-->
-<!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9"><![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js"><!--<![endif]-->
+<html class="no-js" lang="en">
 <head>
     {% include head.html %}
 </head>
@@ -22,8 +19,11 @@ layout: compress
                     </a>
                 </div>
                 <div class="post-list">
-                    {% for post in site.posts %} 
-                        {% if post.project == null %}
+                    {% assign blog_posts = site.posts | where_exp: "post", "post.project != true" %}
+                    {% if blog_posts.size == 0 %}
+                    <p class="post-list-empty">No posts yet. Check back later, or browse <a href="{{ site.url }}/projects/">projects</a> and <a href="{{ site.url }}/cv/">CV</a>.</p>
+                    {% else %}
+                    {% for post in blog_posts %}
                     <ul>
                         <li class="wow fadeInLeft" data-wow-duration="1.5s">
                             <a class="zoombtn" href="{{ site.url }}{{ post.url }}">{{ post.title }}</a>
@@ -31,8 +31,8 @@ layout: compress
                             <a href="{{ site.url }}{{ post.url }}" class="btn zoombtn">Read More</a>
                         </li>
                     </ul>
-                        {% endif %}
                     {% endfor %}
+                    {% endif %}
                 </div>
             </div>
         </div>

@@ -1,0 +1,12 @@
+# Short copy for home / nav — edit here to update sitewide blurbs
+tagline: Machine Learning Engineer
+location: Prague Metropolitan Area, Czech Republic
+focus_areas:
+  - Computer vision
+  - Deep learning & edge AI
+  - Reinforcement learning
+  - Robotics
+
+summary: |
+  I work on machine learning for real-world systems—from research prototypes to models that run on device.
+  I care about computer vision, spatial AI, and making robust software around ML pipelines.

@@ -1,0 +1,83 @@
+---
+layout: compress
+---
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+<head>
+    {% include head.html %}
+</head>
+<body class="body-cv">
+    {% include nav.html %}
+    <header class="header header--cv" role="banner">
+        <div class="wrapper animated fadeIn">
+            <div class="content cv-page">
+                <div class="post-title">
+                    <h1>{{ page.title }}</h1>
+                    <a class="btn zoombtn" href="{{ site.url }}/">
+                        <i class="fa fa-home"></i>
+                    </a>
+                </div>
+
+                {{ content }}
+
+                <div class="cv-pills" id="cv-pills" role="group" aria-label="Filter experience by focus">
+                    <span class="cv-pills__label">Focus:</span>
+                    <button type="button" class="cv-pill is-active" data-tag="all" aria-pressed="true">All</button>
+                    <button type="button" class="cv-pill" data-tag="cv" aria-pressed="false">Computer vision</button>
+                    <button type="button" class="cv-pill" data-tag="ml" aria-pressed="false">ML engineering</button>
+                    <button type="button" class="cv-pill" data-tag="edge" aria-pressed="false">Edge AI</button>
+                    <button type="button" class="cv-pill" data-tag="robotics" aria-pressed="false">Robotics</button>
+                    <button type="button" class="cv-pill" data-tag="research" aria-pressed="false">Research</button>
+                </div>
+
+                <section class="cv-section cv-timeline" id="cv-timeline" aria-labelledby="cv-exp-heading">
+                    <h2 id="cv-exp-heading">Experience</h2>
+                    {% for job in site.data.experience %}
+                    <article class="timeline-item js-timeline-item{% if forloop.first %} is-open{% endif %}"
+                             data-tags="{{ job.tags | join: ',' }}">
+                        <button type="button" class="timeline-item__head" aria-expanded="{% if forloop.first %}true{% else %}false{% endif %}" id="tl-btn-{{ forloop.index }}">
+                            <span class="timeline-item__title">{{ job.role }}</span>
+                            <span class="timeline-item__company">{{ job.company }}</span>
+                            <span class="timeline-item__meta">{{ job.start }} — {{ job.end }}{% if job.location %} · {{ job.location }}{% endif %}</span>
+                        </button>
+                        <div class="timeline-item__body" id="tl-panel-{{ forloop.index }}" {% unless forloop.first %}hidden{% endunless %}>
+                            <p>{{ job.summary }}</p>
+                        </div>
+                    </article>
+                    {% endfor %}
+                </section>
+
+                <section class="cv-section" aria-labelledby="cv-edu-heading">
+                    <h2 id="cv-edu-heading">Education</h2>
+                    <ul class="cv-edu-list">
+                        {% for edu in site.data.education %}
+                        <li>
+                            <strong>{{ edu.degree }}</strong><br>
+                            {{ edu.institution }} · {{ edu.period }}
+                            {% if edu.detail %}<br><span class="cv-edu-detail">{{ edu.detail }}</span>{% endif %}
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </section>
+
+                <section class="cv-section" aria-labelledby="cv-cert-heading">
+                    <h2 id="cv-cert-heading">Certifications</h2>
+                    <ul class="cv-edu-list">
+                        <li><strong>Open Machine Learning Course</strong> (mlcourse.ai / OpenDataScience) · Issued Nov 2019</li>
+                    </ul>
+                </section>
+
+                <section class="cv-section" aria-labelledby="cv-lang-heading">
+                    <h2 id="cv-lang-heading">Languages</h2>
+                    <ul class="cv-lang-list">
+                        <li><strong>English</strong> — Professional working proficiency</li>
+                        <li><strong>Czech</strong> — Professional working proficiency</li>
+                        <li><strong>Russian</strong> — Native or bilingual proficiency</li>
+                    </ul>
+                </section>
+            </div>
+        </div>
+    </header>
+    {% include scripts.html %}
+</body>
+</html>

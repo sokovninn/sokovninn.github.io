@@ -1,12 +1,12 @@
 # Site
 title:              Nikita Sokovnin
-bio:                'AI Enthusiast'
-description:        ""
+bio:                'Machine Learning Engineer · Prague'
+description:        'ML engineer focused on computer vision, edge AI, and robotics. Master’s in Computer Vision (CTU); experience from research to shipping on-device models.'
 reading_time:       false
 words_per_minute:   200
 logo:               'assets/img/logo.png'
-background:         'assets/img/retrowave_placeholder.jpg'
-tiled_bg:           false   # Set this true if you want to tile your background image, otherwise it will be covered
+background:         false
+tiled_bg:           false
 locale:             en_US
 url:                https://sokovninn.github.io
 
@@ -25,45 +25,15 @@ sass:
   sass_dir:         _sass
   style:            compressed
 
-# Comments
-disqus_shortname:   sokovninn
+# Comments (disabled — no Disqus)
+# disqus_shortname:
 
 # Social
-# if you don't have any of social below, comment the line.
-#google:
-  #plus:            #username
-  #analytics:
-  #verify:
-  #ad-client:
-  #ad-slot:
-#bing-verify:
-#email:
-#twitter:            username
-#facebook:           username
 github-url:         sokovninn
-#stackoverflow:     123456/username   from a "http://stackoverflow.com/users/123456/username" link
-#linkedin:          username
-#xing:              username
-#instagram:         username
-#lastfm:            username
-#tumblr:            username
-#medium:            '@username'
-#pinterest:         username
-#foursquare:        username
-#steam:             username
-#dribbble:          username
-#youtube:           username
-#youtube-channel:   channel
-#soundcloud:        username
-#weibo:             username
-#flickr:            username
-#codepen:           username
-#keybase:           username
-#xmpp:              username@server.com
-#hackernews:        username
+linkedin:           nikita-sokovnin-250939198
 
-# Gems
-gems:
+# Plugins (GitHub Pages)
+plugins:
   - jekyll-mentions
   - jekyll-feed
   - jekyll-sitemap

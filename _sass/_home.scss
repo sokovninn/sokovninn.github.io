@@ -1,0 +1,322 @@
+// Home hero, CV timeline, project grid — complements Moon theme
+
+$home-accent: #00d4aa;
+$home-accent-dim: rgba(0, 212, 170, 0.35);
+$home-slate: #0a1018;
+$home-panel-border: rgba(255, 255, 255, 0.06);
+
+.body-home {
+  .header.header--home {
+    position: relative;
+    min-height: 100vh;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    padding: 2rem 0;
+  }
+
+  .home-hero__bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    background: linear-gradient(155deg, #060a10 0%, #0f1828 38%, #0a121c 100%);
+  }
+
+  .home-hero__grain {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    opacity: 0.4;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='280' height='280'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.55'/%3E%3C/svg%3E");
+    mix-blend-mode: overlay;
+  }
+
+  .home-hero__spotlight {
+    --sx: 50%;
+    --sy: 42%;
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    pointer-events: none;
+    background: radial-gradient(
+      ellipse 60% 50% at var(--sx) var(--sy),
+      $home-accent-dim 0%,
+      transparent 58%
+    );
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .home-hero__spotlight {
+      display: none;
+    }
+    .home-logo {
+      transform: none !important;
+    }
+  }
+
+  .home-panel {
+    position: relative;
+    z-index: 10;
+    border: 1px solid $home-panel-border;
+    box-shadow: 0 24px 80px rgba(0, 0, 0, 0.45), 0 0 0 1px rgba(255, 255, 255, 0.04) inset;
+    background: linear-gradient(180deg, #fafcfd 0%, #eef2f6 100%);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+
+    &.home-panel--observe {
+      opacity: 0;
+      transform: translateY(18px);
+      &.is-visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  }
+
+  .home-name__text {
+    font-family: "Syne", $font1;
+    font-weight: 600;
+    font-size: 1.45rem;
+    letter-spacing: -0.02em;
+    color: $color_shark;
+  }
+
+  .home-role {
+    font-size: 0.95rem;
+    color: $color_stack;
+    margin: 0.25rem 0 0;
+    font-weight: 500;
+  }
+
+  .home-summary {
+    text-align: left;
+    font-size: 0.92rem;
+    line-height: 1.55;
+    color: lighten($color_tuatara, 5%);
+    max-width: 32rem;
+    margin: 0.75rem auto 0;
+    padding: 0 0.5rem;
+  }
+
+  .home-focus {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: $color_stack;
+    margin: 1rem 0 0;
+  }
+
+  .home-focus__item {
+    color: darken($home-accent, 8%);
+    font-weight: 600;
+  }
+
+  .home-cta .btn {
+    border-color: rgba($color_shark, 0.15);
+    &:hover {
+      border-color: $home-accent;
+      color: darken($home-accent, 12%);
+    }
+  }
+}
+
+// Inner pages: sit on cool slate
+body:not(.body-home) {
+  background: linear-gradient(165deg, #070b10 0%, #121a24 50%, #080c12 100%);
+  @media #{$small} {
+    background: $white;
+  }
+}
+
+// Focus pills (CV + Projects)
+.cv-pills {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 1.5rem 0 2rem;
+  padding: 0.75rem 0;
+  border-top: 1px solid $color_mercury;
+  border-bottom: 1px solid $color_mercury;
+}
+
+.cv-pills__label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: $color_stack;
+  margin-right: 0.35rem;
+}
+
+.cv-pill {
+  font-family: $font1;
+  font-size: 0.78rem;
+  padding: 0.35rem 0.75rem;
+  border-radius: 999px;
+  border: 1px solid $color_mercury;
+  background: $white;
+  color: $color_tuatara;
+  cursor: pointer;
+  transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+
+  &:hover,
+  &.is-active {
+    border-color: $home-accent;
+    color: darken($home-accent, 18%);
+    background: rgba(0, 212, 170, 0.08);
+  }
+}
+
+// CV + interactive
+.cv-page {
+  .cv-section h2 {
+    font-family: "Syne", $font1;
+    font-size: 1.25rem;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    color: $color_shark;
+  }
+
+  .timeline-item {
+    border-left: 2px solid $color_mercury;
+    margin-left: 0.35rem;
+    padding-left: 1rem;
+    margin-bottom: 0.5rem;
+
+    &.is-filtered-out {
+      display: none;
+    }
+  }
+
+  .timeline-item__head {
+    display: block;
+    width: 100%;
+    text-align: left;
+    background: transparent;
+    border: none;
+    padding: 0.65rem 0;
+    cursor: pointer;
+    font-family: $font1;
+    color: inherit;
+    border-radius: 4px;
+    transition: background 0.15s ease;
+
+    &:hover {
+      background: rgba(0, 0, 0, 0.03);
+    }
+
+    &:focus {
+      outline: 2px solid $home-accent;
+      outline-offset: 2px;
+    }
+  }
+
+  .timeline-item__title {
+    display: block;
+    font-weight: 700;
+    font-size: 1rem;
+    color: $color_shark;
+  }
+
+  .timeline-item__company {
+    display: block;
+    font-size: 0.92rem;
+    color: darken($home-accent, 12%);
+    font-weight: 600;
+  }
+
+  .timeline-item__meta {
+    display: block;
+    font-size: 0.8rem;
+    color: $color_stack;
+    margin-top: 0.2rem;
+  }
+
+  .timeline-item__body {
+    padding: 0 0 0.75rem 0;
+    font-size: 0.92rem;
+    line-height: 1.55;
+    color: $color_tuatara;
+
+    p {
+      margin: 0.35rem 0 0;
+    }
+  }
+
+  .cv-edu-list,
+  .cv-lang-list {
+    padding-left: 1.1rem;
+    li {
+      margin-bottom: 0.85rem;
+      line-height: 1.45;
+    }
+  }
+
+  .cv-edu-detail {
+    font-size: 0.88rem;
+    color: $color_stack;
+  }
+}
+
+// Projects page
+.projects-page {
+  .projects-intro {
+    font-size: 0.95rem;
+    color: $color_stack;
+    margin-bottom: 1rem;
+  }
+
+  .project-grid {
+    display: grid;
+    gap: 1.25rem;
+    grid-template-columns: 1fr;
+    @media #{$notsmall} {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  .project-card {
+    border: 1px solid $color_mercury;
+    border-radius: 6px;
+    padding: 1.1rem 1.15rem;
+    background: lighten($color_alabaster, 2%);
+
+    &.is-filtered-out {
+      display: none;
+    }
+  }
+
+  .project-card__title {
+    margin: 0 0 0.35rem;
+    font-size: 1.05rem;
+    font-family: "Syne", $font1;
+  }
+
+  .project-card__tags {
+    font-size: 0.75rem;
+    margin: 0.5rem 0 0.75rem;
+  }
+
+  .project-tag {
+    display: inline-block;
+    margin-right: 0.35rem;
+    padding: 0.15rem 0.45rem;
+    border-radius: 3px;
+    background: rgba(0, 0, 0, 0.05);
+    color: $color_stack;
+    text-transform: capitalize;
+  }
+}
+
+.post-list-empty {
+  font-size: 1rem;
+  line-height: 1.6;
+  a {
+    color: $info;
+    font-weight: 600;
+  }
+}
+
+.tag.tag--plain .term {
+  cursor: default;
+}
