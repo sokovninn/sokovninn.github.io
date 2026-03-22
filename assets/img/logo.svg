@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-labelledby="logoTitle">
+  <title id="logoTitle">Nikita Sokovnin  ML &amp; computer vision</title>
+  <defs>
+    <linearGradient id="logoBg" x1="8" y1="12" x2="112" y2="108" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#070b12"/>
+      <stop offset="55%" stop-color="#0f1a24"/>
+      <stop offset="100%" stop-color="#152a32"/>
+    </linearGradient>
+    <linearGradient id="logoAccent" x1="0" y1="0" x2="120" y2="120">
+      <stop offset="0%" stop-color="#5fffd8"/>
+      <stop offset="45%" stop-color="#00d4aa"/>
+      <stop offset="100%" stop-color="#008f7a"/>
+    </linearGradient>
+    <radialGradient id="logoCore" cx="50%" cy="45%" r="55%">
+      <stop offset="0%" stop-color="#b8fff0"/>
+      <stop offset="40%" stop-color="#00d4aa"/>
+      <stop offset="100%" stop-color="#006b5c"/>
+    </radialGradient>
+    <filter id="logoSoft" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="0.8" result="b"/>
+      <feMerge>
+        <feMergeNode in="b"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Outer ring -->
+  <circle cx="60" cy="60" r="58" fill="url(#logoBg)" stroke="#1e3a40" stroke-width="1.2" opacity="0.95"/>
+
+  <!-- Hex lattice: inference graph (flat-top, R=26 from center) -->
+  <path
+    d="M60 34 L82.516 47 L82.516 73 L60 86 L37.484 73 L37.484 47 Z"
+    fill="none"
+    stroke="url(#logoAccent)"
+    stroke-width="1.35"
+    stroke-opacity="0.55"
+    stroke-linejoin="round"/>
+
+  <!-- Spokes: fusion to center -->
+  <path
+    d="M60 60 L60 34 M60 60 L82.516 47 M60 60 L82.516 73 M60 60 L60 86 M60 60 L37.484 73 M60 60 L37.484 47"
+    stroke="url(#logoAccent)"
+    stroke-width="1.1"
+    stroke-opacity="0.38"
+    stroke-linecap="round"/>
+
+  <!-- Peripheral sensors -->
+  <circle cx="60" cy="34" r="3.6" fill="url(#logoAccent)" opacity="0.95"/>
+  <circle cx="82.516" cy="47" r="3.6" fill="url(#logoAccent)" opacity="0.95"/>
+  <circle cx="82.516" cy="73" r="3.6" fill="url(#logoAccent)" opacity="0.95"/>
+  <circle cx="60" cy="86" r="3.6" fill="url(#logoAccent)" opacity="0.95"/>
+  <circle cx="37.484" cy="73" r="3.6" fill="url(#logoAccent)" opacity="0.95"/>
+  <circle cx="37.484" cy="47" r="3.6" fill="url(#logoAccent)" opacity="0.95"/>
+
+  <!-- Central focus / embedding -->
+  <circle cx="60" cy="60" r="14" fill="none" stroke="url(#logoAccent)" stroke-width="0.9" stroke-opacity="0.25"/>
+  <circle cx="60" cy="60" r="10" fill="url(#logoCore)" filter="url(#logoSoft)"/>
+  <circle cx="60" cy="60" r="4.2" fill="#05080c" opacity="0.88"/>
+
+  <!-- Micro accent: scan tick -->
+  <path d="M60 22 L60 26" stroke="url(#logoAccent)" stroke-width="1.6" stroke-linecap="round" opacity="0.9"/>
+</svg>

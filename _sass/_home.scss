@@ -55,6 +55,12 @@ $home-panel-border: rgba(255, 255, 255, 0.06);
     }
   }
 
+  .home-logo.img-circle {
+    border-color: rgba(0, 212, 170, 0.55);
+    box-shadow: 0 0 0 1px rgba(0, 212, 170, 0.12), 0 0 28px rgba(0, 212, 170, 0.12), 0 14px 36px rgba(0, 0, 0, 0.4);
+    background-color: #0a1018;
+  }
+
   .home-panel {
     position: relative;
     z-index: 10;

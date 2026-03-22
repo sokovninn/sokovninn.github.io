@@ -4,7 +4,7 @@ bio:                'Machine Learning Engineer · Prague'
 description:        'ML engineer in Prague — production computer vision, edge & cloud pipelines, RL & robotics. M.Sc. CV (CTU); 5+ years shipping real-world ML.'
 reading_time:       false
 words_per_minute:   200
-logo:               'assets/img/logo.png'
+logo:               'assets/img/logo.svg'
 background:         false
 tiled_bg:           false
 locale:             en_US
